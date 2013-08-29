@@ -1,15 +1,16 @@
 package Geo::Coder::Cloudmade;
 
-our $VERSION = '0.3';
+our $VERSION = '0.4';
 
 use strict;
 
-use Carp;
+use Carp qw(croak);
 use Encode;
 use JSON::Syck;
 use HTTP::Request;
 use LWP::UserAgent;
 use URI;
+
 
 sub new {
     my $class = shift;
@@ -17,6 +18,11 @@ sub new {
 
     my $ua = $args->{ua} || LWP::UserAgent->new( agent => __PACKAGE__ . "/$VERSION" );
     my $host = $args->{host} || 'geocoding.cloudmade.com';
+
+	unless( exists($args->{apikey}) )
+	{
+		croak "Required parameter 'apikey' not specified";
+	};
 
     my $self = {
         apikey  => $args->{apikey},
@@ -35,9 +41,7 @@ sub geocode {
 
     my $location = $args->{location};
 
-    if( Encode::is_utf8($location) ) {
-        $location = Encode::encode_utf8($location);
-    };
+	$location = Encode::encode_utf8($location);
 
     my $url_string = 'http://'. $self->{host} .'/'. $self->{apikey} .'/geocoding/v2/find.js';
 

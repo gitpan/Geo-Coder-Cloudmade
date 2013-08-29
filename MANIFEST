@@ -4,3 +4,4 @@ MANIFEST
 Makefile.PL
 Cloudmade.pm
 META.yml                                 Module meta-data (added by MakeMaker)
+t/cloudmade.t

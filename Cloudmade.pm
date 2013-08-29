@@ -1,6 +1,6 @@
 package Geo::Coder::Cloudmade;
 
-our $VERSION = '0.4';
+our $VERSION = '0.5';
 
 use strict;
 
@@ -37,7 +37,7 @@ sub new {
 
 sub geocode {
     my $self = shift;
-    my $args = shift;
+    my $args = ref( $_[0] ) ? $_[0] : { @_ };
 
     my $location = $args->{location};
 

@@ -9,3 +9,6 @@ Revision history for Perl module Geo::Coder::Cloudmade
 0.4		2013.08.29
 		- addition of tests
 
+0.5		2013.08.29
+		- geocode method now allows for both hash ref and hash arguments.
+

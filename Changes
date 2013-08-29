@@ -2,3 +2,6 @@ Revision history for Perl module Geo::Coder::Cloudmade
 
 0.1     2009.11.12
         - Release of Geo::Coder::Cloudmade
+
+0.3		2013.08.29
+		- Fix of interface bugs and return of co-ordinates.

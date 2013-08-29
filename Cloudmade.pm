@@ -1,6 +1,6 @@
 package Geo::Coder::Cloudmade;
 
-our $VERSION = '0.2';
+our $VERSION = '0.3';
 
 use strict;
 
@@ -13,7 +13,7 @@ use URI;
 
 sub new {
     my $class = shift;
-    my $args = shift;
+    my $args = ref( $_[0] ) ? $_[0] : { @_ };
 
     my $ua = $args->{ua} || LWP::UserAgent->new( agent => __PACKAGE__ . "/$VERSION" );
     my $host = $args->{host} || 'geocoding.cloudmade.com';
@@ -58,7 +58,7 @@ sub geocode {
     foreach my $point ( @{$data->{features}} ) {
         my $tmp = {
             lat     => $point->{centroid}->{coordinates}->[0],
-            long    => $point->{centroid}->{coordinates}->[0],
+            long    => $point->{centroid}->{coordinates}->[1],
         };
         push @{$results}, $tmp;
     };

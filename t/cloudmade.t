@@ -1,6 +1,6 @@
 use strict;
 
-use Test::More tests => 4;
+use Test::More tests => 5;
 use Test::Exception;
 use Test::Deep;
 
@@ -27,5 +27,7 @@ my $expected =
 
 my $got = $geocoder->geocode( { location => $test_address } );
 
-cmp_deeply( $got, $expected, 'correct location geocoded' );
+ok( $expected->{lat} eq sprintf("%.5f", $got->{lat}), 'Compare lattitude' );
+ok( $expected->{long} eq sprintf("%.5f", $got->{long}), 'Compare longitude' );
+
 

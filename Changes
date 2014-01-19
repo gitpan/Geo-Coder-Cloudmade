@@ -4,14 +4,17 @@ Revision history for Perl module Geo::Coder::Cloudmade
         - Release of Geo::Coder::Cloudmade
 
 0.3		2013.08.29
-		- Fix of interface bugs and return of co-ordinates.
+		- Fix of interface bugs and return of co-ordinates
 
 0.4		2013.08.29
-		- addition of tests
+		- Addition of tests
 
 0.5		2013.08.29
-		- geocode method now allows for both hash ref and hash arguments.
+		- geocode method now allows for both hash ref and hash arguments
 
 0.6		2013.08.29
 		- Adding return value information to POD
+
+0.7		2014.01.19
+		- Rounding floating return values so tests pass on across all OS
 
